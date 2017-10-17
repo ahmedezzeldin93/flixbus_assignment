@@ -1,6 +1,8 @@
 """
 Trip class
 """
+from datetime import datetime
+
 
 class Trip:
     """
@@ -8,7 +10,14 @@ class Trip:
     """
     def __init__(self, trip_id, departure_time, trip_time, num_connections, trip_distance, trip_price):
         self.trip_id = trip_id
-        self.departure_time  = departure_time
+        
+        if isinstance(departure_time, list):
+            year, month, day, hour, minute = departure_time
+            self.departure_time  = datetime(year=year, month=month, day=day, hour=hour, minute=minute)
+        elif isinstance(departure_time, datetime):
+            self.departure_time = departure_time
+        else:
+            self.departure_time = None
         self.trip_time = trip_time
         self.num_connections = num_connections
         self.trip_distance = trip_distance
