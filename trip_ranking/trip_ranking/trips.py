@@ -13,3 +13,10 @@ class Trip:
         self.num_connections = num_connections
         self.trip_distance = trip_distance
         self.trip_price = trip_price
+    
+    def __repr__(self):
+        return "Trip {}: {}".format(str(self.trip_id), str(self.departure_time))
+
+    def __str__(self):
+        return "Trip {}: {}".format(str(self.trip_id), str(self.departure_time))
+
